@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Tag;
+use Illuminate\Support\Str;
 
 class TagsTableSeeder extends Seeder
 {
@@ -11,6 +13,14 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['vegetariano','senza glutine','senza glutine','carne','pesce']
+        $tags = ['vegetariano','senza glutine','carne','pesce'];
+        for($i = 0; $i < count($tags);$i++){
+            $newTag = new Tag();
+            $newTag->name = $tags[$i];
+            $newTag->slug = Str::of($newTag->name)->slug('-');
+            //Str::slug($newTag->name);
+            $newTag->save();
+
+        }
     }
 }
