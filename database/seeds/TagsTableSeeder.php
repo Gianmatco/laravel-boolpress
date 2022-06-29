@@ -11,6 +11,6 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $tags = ['vegetariano','senza glutine','']
+        $tags = ['vegetariano','senza glutine','senza glutine','carne','pesce']
     }
 }
