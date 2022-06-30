@@ -21,6 +21,7 @@
 </head>
 <body>
     <div id="app">
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -44,6 +45,12 @@
                                 Posts
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.categories.index')}}" class="nav-link {{Route::currentRouteName() == 'admin.categories.index' ? 'active' : ''}}" >
+                                Categories
+                            </a>
+                        </li>
+
                         @endauth
 
                     </ul>

@@ -49797,16 +49797,16 @@ var app = new Vue({
   el: '#app',
   data: {
     currentForm: null,
-    postid: null
+    itemid: null
   },
   methods: {
     openModal: function openModal(e, id) {
       e.preventDefault(); //console.log(id);
 
-      this.postid = id; //console.log(e.currentTarget);
+      this.itemid = id; //console.log(e.currentTarget);
 
-      this.currentForm = e.currentTarget.parentNode;
-      console.log(this.currentForm);
+      this.currentForm = e.currentTarget.parentNode; //console.log(this.currentForm);
+
       $('#deleteModal').modal('show');
     },
     submitForm: function submitForm() {

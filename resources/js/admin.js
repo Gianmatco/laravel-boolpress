@@ -31,16 +31,16 @@ const app = new Vue({
     el: '#app',
     data:{
         currentForm: null,
-        postid: null
+        itemid: null
     },
     methods: {
         openModal(e,id){
             e.preventDefault();
             //console.log(id);
-            this.postid = id;
+            this.itemid = id;
             //console.log(e.currentTarget);
             this.currentForm = e.currentTarget.parentNode;
-            console.log(this.currentForm);
+            //console.log(this.currentForm);
             $('#deleteModal').modal('show');
         },
         submitForm(){

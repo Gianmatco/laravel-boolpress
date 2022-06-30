@@ -10,14 +10,14 @@
     <title>BOOLPRESS</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="{{ asset('js/front.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/front.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -74,7 +74,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="root">
             @yield('content')
         </main>
     </div>
