@@ -49793,27 +49793,53 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    currentForm: null,
-    itemid: null
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+window.boolpress = {
+  currentForm: null,
+  itemid: null,
+  openModal: function openModal(e, id) {
+    e.preventDefault(); //console.log(id);
+
+    this.itemid = id; //console.log(e.currentTarget);
+
+    this.currentForm = e.currentTarget.parentNode; //console.log(this.currentForm);
+
+    $('#deleteModal-body').html("sei sicuro di voler eliminare l' elemento con con id: ".concat(this.itemid));
+    $('#deleteModal').modal('show');
   },
-  methods: {
-    openModal: function openModal(e, id) {
-      e.preventDefault(); //console.log(id);
+  previewImage: function previewImage() {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById('image').files[0]);
 
-      this.itemid = id; //console.log(e.currentTarget);
-
-      this.currentForm = e.currentTarget.parentNode; //console.log(this.currentForm);
-
-      $('#deleteModal').modal('show');
-    },
-    submitForm: function submitForm() {
-      this.currentForm.submit();
-    }
+    oFReader.onload = function (oFREvent) {
+      document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
+  },
+  submitForm: function submitForm() {
+    this.currentForm.submit();
   }
-});
+}; // const app = new Vue({
+//     el: '#app',
+//     data:{
+//         currentForm: null,
+//         itemid: null
+//     },
+//     methods: {
+//         openModal(e,id){
+//             e.preventDefault();
+//             //console.log(id);
+//             this.itemid = id;
+//             //console.log(e.currentTarget);
+//             this.currentForm = e.currentTarget.parentNode;
+//             //console.log(this.currentForm);
+//             $('#deleteModal').modal('show');
+//         },
+//         submitForm(){
+//             this.currentForm.submit();
+//         }
+//     }
+// });
 
 /***/ }),
 

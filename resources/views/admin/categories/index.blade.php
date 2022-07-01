@@ -35,7 +35,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">title</th>
+        <th scope="col">name</th>
         <th scope="col">data creazione</th>
         <th scope="col">modifica</th>
         <th scope="col">cancella</th>
@@ -47,7 +47,7 @@
       @foreach ($categories as $category)
         <tr>
           <td> <a href="{{route('admin.categories.show',$category->id)}}">{{$category->id}} </td>
-          <td> <a href="{{route('admin.categories.show',$category->id)}}">{{$category->title}} </td>
+          <td> <a href="{{route('admin.categories.show',$category->id)}}">{{$category->name}} </td>
           <td>{{$category->created_at}}</td>
           <td><a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-primary">modifica</a></td>
           <td>

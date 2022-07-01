@@ -27,24 +27,55 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-    data:{
-        currentForm: null,
-        itemid: null
-    },
-    methods: {
-        openModal(e,id){
+ require('./bootstrap');
+
+window.boolpress = {
+    currentForm: null,
+    itemid: null,
+    openModal(e,id){
             e.preventDefault();
             //console.log(id);
             this.itemid = id;
             //console.log(e.currentTarget);
             this.currentForm = e.currentTarget.parentNode;
             //console.log(this.currentForm);
+            $('#deleteModal-body').html(`sei sicuro di voler eliminare l' elemento con con id: ${this.itemid}`);
             $('#deleteModal').modal('show');
+        },
+        previewImage(){
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById('image').files[0]);
+
+            oFReader.onload = function(oFREvent){
+                document.getElementById("uploadPreview").src = oFREvent.target.result;
+            }
         },
         submitForm(){
             this.currentForm.submit();
         }
-    }
-});
+
+}
+
+
+
+// const app = new Vue({
+//     el: '#app',
+//     data:{
+//         currentForm: null,
+//         itemid: null
+//     },
+//     methods: {
+//         openModal(e,id){
+//             e.preventDefault();
+//             //console.log(id);
+//             this.itemid = id;
+//             //console.log(e.currentTarget);
+//             this.currentForm = e.currentTarget.parentNode;
+//             //console.log(this.currentForm);
+//             $('#deleteModal').modal('show');
+//         },
+//         submitForm(){
+//             this.currentForm.submit();
+//         }
+//     }
+// });

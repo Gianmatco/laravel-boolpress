@@ -50,6 +50,11 @@
                                 Categories
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.tags.index')}}" class="nav-link {{Route::currentRouteName() == 'admin.tags.index' ? 'active' : ''}}" >
+                                Tags
+                            </a>
+                        </li>
 
                         @endauth
 
